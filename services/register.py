@@ -30,7 +30,7 @@ def validate_user(db: Session, user: UserIn):
     except ValidationError as err:
         errors["phone_number"] = err.detail
     if errors:
-        raise HTTPException(status_code=403, detail=errors)
+        raise HTTPException(status_code=400, detail=errors)
     return user
 
 
